@@ -15,19 +15,16 @@ public class FrameController {
     private DrakkarProw client;
     private ProwAdapter clientAdapter;
     private SearchAdapter searchAdapter;
-    private SearchTableModel tableModel;
     
     public FrameController(MainFrame mainFrame) throws RequestException {
         this.mainFrame = mainFrame;
         this.client = mainFrame.getClient();
-        this.tableModel = new SearchTableModel();
         
         this.clientAdapter = new ProwAdapter() {};
         this.searchAdapter = new SearchAdapter() {
             @Override
             public void notifySearchResults(SearchEvent evt) {
-                super.notifySearchResults(evt); //To change body of generated methods, choose Tools | Templates.
-                Response response = evt.getResponse();
+                super.notifySearchResults(evt);
 //                Continua aqui, mas antes tem que implementar o SearchTableModel, EU ACHO!
             }
         };
